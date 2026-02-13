@@ -1,4 +1,5 @@
 import { colors } from "@/utils/constants";
+import { router } from "expo-router";
 import React from "react";
 import {
   Dimensions,
@@ -28,12 +29,18 @@ export default function Welcome() {
         >
           Welcome to Movieket
         </Text>
-        <Pressable style={styles.createAnAccoount}>
+        <Pressable
+          style={styles.createAnAccoount}
+          onPress={() => router.push("/(auth)/register")}
+        >
           <Text style={{ color: "white", fontWeight: "500", fontSize: 18 }}>
             Create an Account
           </Text>
         </Pressable>
-        <Pressable style={styles.loginButton}>
+        <Pressable
+          style={styles.loginButton}
+          onPress={() => router.push("/(auth)")}
+        >
           <Text
             style={{ color: colors.PRIMARY, fontWeight: "500", fontSize: 18 }}
           >

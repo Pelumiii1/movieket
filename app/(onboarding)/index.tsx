@@ -6,6 +6,7 @@ import {
   FlatList,
   ImageBackground,
   Pressable,
+  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -42,61 +43,69 @@ export default function Onboarding() {
   }
 
   return (
-    <FlatList
-      ref={flatlistRef}
-      data={slides}
-      horizontal
-      pagingEnabled
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={(item) => item.id}
-      onViewableItemsChanged={onViewableItemChanged}
-      viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
-      getItemLayout={(_, index) => ({
-        length: width,
-        offset: width * index,
-        index,
-      })}
-      renderItem={({ item }) => (
-        <ImageBackground
-          style={styles.container}
-          source={item.image}
-          resizeMode="cover"
-        >
-          <View style={styles.overlay}>
-            <View style={{ marginRight: 40 }}>
-              <Text style={{ color: "white", fontWeight: "500", fontSize: 24 }}>
-                {item.title}
-              </Text>
-              <Text
+    <View>
+      <FlatList
+        ref={flatlistRef}
+        data={slides}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={(item) => item.id}
+        onViewableItemsChanged={onViewableItemChanged}
+        viewabilityConfig={{ viewAreaCoveragePercentThreshold: 50 }}
+        getItemLayout={(_, index) => ({
+          length: width,
+          offset: width * index,
+          index,
+        })}
+        renderItem={({ item }) => (
+          <ImageBackground
+            style={styles.container}
+            source={item.image}
+            resizeMode="cover"
+          >
+            <View style={styles.overlay}>
+              <View style={{ marginRight: 40 }}>
+                <Text
+                  style={{ color: "white", fontWeight: "500", fontSize: 24 }}
+                >
+                  {item.title}
+                </Text>
+                <Text
+                  style={{
+                    color: "white",
+                    fontSize: 14,
+                    fontWeight: "500",
+                    paddingTop: 5,
+                  }}
+                >
+                  {item.description}
+                </Text>
+              </View>
+
+              <View
                 style={{
-                  color: "white",
-                  fontSize: 14,
-                  fontWeight: "500",
-                  paddingTop: 5,
+                  flexDirection: "row",
+                  paddingTop: 20,
+                  justifyContent: "space-between",
                 }}
               >
-                {item.description}
-              </Text>
+                <Text
+                  style={styles.skipButton}
+                  onPress={routeToOnboardingScreen}
+                >
+                  Skip
+                </Text>
+                <Pressable style={styles.proceedButton} onPress={handleNext}>
+                  <Text style={styles.nextText}>Next</Text>
+                </Pressable>
+              </View>
             </View>
-
-            <View
-              style={{
-                flexDirection: "row",
-                paddingTop: 20,
-                justifyContent: "space-between",
-              }}
-            >
-              <Text style={styles.skipButton} onPress={routeToOnboardingScreen}>
-                Skip
-              </Text>
-              <Pressable style={styles.proceedButton} onPress={handleNext}>
-                <Text style={styles.nextText}>Next</Text>
-              </Pressable>
-            </View>
-          </View>
-        </ImageBackground>
-      )}
-    />
+          </ImageBackground>
+        )}
+      />
+      <StatusBar barStyle="light-content" />
+    </View>
   );
 }
 
