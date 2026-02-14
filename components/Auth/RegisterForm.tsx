@@ -8,55 +8,27 @@ const RegisterForm = () => {
   const [isConfirmPasswordHidden, setIsConfirmPasswordHidden] = useState(true);
 
   return (
-    <View style={{ paddingVertical: 15 }}>
-      <View style={{ rowGap: 18 }}>
+    <View style={styles.container}>
+      <View style={styles.inputContainer}>
         <TextInput
           placeholder="Full Name"
           placeholderTextColor="#5E645E"
           keyboardType="default"
-          style={{
-            borderWidth: 1,
-            borderColor: "#C4C4C4",
-            height: 50,
-            padding: 12,
-            borderRadius: 8,
-          }}
+          style={styles.input}
         />
         <TextInput
           placeholder="Email Address"
           placeholderTextColor="#5E645E"
           keyboardType="email-address"
-          style={{
-            borderWidth: 1,
-            borderColor: "#C4C4C4",
-            height: 50,
-            padding: 12,
-            borderRadius: 8,
-          }}
+          style={styles.input}
         />
         <TextInput
           placeholder="Phone Number"
           placeholderTextColor="#5E645E"
           keyboardType="phone-pad"
-          style={{
-            borderWidth: 1,
-            borderColor: "#C4C4C4",
-            height: 50,
-            padding: 12,
-            borderRadius: 8,
-          }}
+          style={styles.input}
         />
-        <View
-          style={{
-            flexDirection: "row",
-            borderWidth: 1,
-            borderColor: "#C4C4C4",
-            height: 50,
-            paddingHorizontal: 12,
-            borderRadius: 8,
-            alignItems: "center",
-          }}
-        >
+        <View style={styles.passwordContainer}>
           <TextInput
             placeholder="Password"
             placeholderTextColor="#5E645E"
@@ -64,10 +36,7 @@ const RegisterForm = () => {
             secureTextEntry={isPasswordHidden}
             autoCorrect={false}
             autoCapitalize="none"
-            style={{
-              flex: 1,
-              height: 50,
-            }}
+            style={styles.passwordInput}
           />
           <Ionicons
             name={isPasswordHidden ? "eye-off" : "eye-sharp"}
@@ -78,16 +47,7 @@ const RegisterForm = () => {
         </View>
 
         {/* Confrim Password  */}
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            borderWidth: 1,
-            borderColor: "#C4C4C4",
-            paddingHorizontal: 12,
-            borderRadius: 8,
-          }}
-        >
+        <View style={styles.passwordContainer}>
           <TextInput
             placeholder="Confrim Password"
             placeholderTextColor="#5E645E"
@@ -95,10 +55,7 @@ const RegisterForm = () => {
             secureTextEntry={isConfirmPasswordHidden}
             autoCorrect={false}
             autoCapitalize="none"
-            style={{
-              flex: 1,
-              height: 50,
-            }}
+            style={styles.passwordInput}
           />
           <Ionicons
             name={isConfirmPasswordHidden ? "eye-off" : "eye-sharp"}
@@ -109,20 +66,9 @@ const RegisterForm = () => {
         </View>
       </View>
 
-      <Text
-        style={{
-          fontSize: 14,
-          fontWeight: "500",
-          color: colors.SECONDARY,
-          textAlign: "center",
-          marginVertical: 15,
-        }}
-      >
+      <Text style={styles.termsText}>
         By continuing, you agree to our{" "}
-        <Text
-          style={{ color: colors.PRIMARY }}
-          onPress={() => console.log("hello")}
-        >
+        <Text style={styles.termsLink} onPress={() => console.log("hello")}>
           Terms of Service and Private Policy
         </Text>
       </Text>
@@ -131,19 +77,13 @@ const RegisterForm = () => {
         style={styles.createAnAccoount}
         // onPress={() => router.push("/(auth)/register")}
       >
-        <Text style={{ color: "white", fontWeight: "500", fontSize: 18 }}>
-          Create an Account
-        </Text>
+        <Text style={styles.buttonText}>Create an Account</Text>
       </Pressable>
       <Pressable
         style={styles.loginButton}
         // onPress={() => router.push("/(auth)")}
       >
-        <Text
-          style={{ color: colors.PRIMARY, fontWeight: "500", fontSize: 18 }}
-        >
-          Continue with Google
-        </Text>
+        <Text style={styles.googleButtonText}>Continue with Google</Text>
       </Pressable>
     </View>
   );
@@ -152,6 +92,52 @@ const RegisterForm = () => {
 export default RegisterForm;
 
 const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 30,
+  },
+  inputContainer: {
+    rowGap: 18,
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: "#C4C4C4",
+    height: 50,
+    padding: 12,
+    borderRadius: 8,
+  },
+  passwordContainer: {
+    flexDirection: "row",
+    borderWidth: 1,
+    borderColor: "#C4C4C4",
+    height: 50,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    alignItems: "center",
+  },
+  passwordInput: {
+    flex: 1,
+    height: 50,
+  },
+  termsText: {
+    fontSize: 14,
+    fontWeight: "500",
+    color: colors.SECONDARY,
+    textAlign: "center",
+    marginVertical: 15,
+  },
+  termsLink: {
+    color: colors.PRIMARY,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "500",
+    fontSize: 18,
+  },
+  googleButtonText: {
+    color: colors.PRIMARY,
+    fontWeight: "500",
+    fontSize: 18,
+  },
   createAnAccoount: {
     backgroundColor: colors.PRIMARY,
     marginTop: 20,
