@@ -1,14 +1,8 @@
-import { colors } from "@/utils/constants";
+import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
 import React from "react";
-import {
-  Dimensions,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Dimensions, Pressable, StyleSheet, Text, View } from "react-native";
+import { colors } from "../../utils/constants";
 
 const { width, height } = Dimensions.get("window");
 

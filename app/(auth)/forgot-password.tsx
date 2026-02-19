@@ -46,7 +46,7 @@ export default function ForgotPassword() {
 
       <Pressable
         style={styles.resetPasswordButton}
-        // onPress={() => router.push("/(auth)/register")}
+        onPress={() => router.push("/(auth)/reset-password")}
       >
         <Text style={styles.buttonText}>Reset Password</Text>
       </Pressable>

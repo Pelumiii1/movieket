@@ -1,0 +1,64 @@
+{
+  "comingSoon": [
+    {
+      "id": 1,
+      "title": "Spider-Man 3",
+      "image": "https://m.media-amazon.com/images/M/MV5BZDEyN2NhMjgtYjYwYS00NzlkLWI1OTktYjlhMmVmZjU5ZThhXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg",
+      "rating": "PG-13",
+      "status": "Coming Soon",
+      "description": "Watch Spider-Man in his next adventure"
+    }
+  ],
+  "nowShowing": [
+    {
+      "id": 2,
+      "title": "Dr. Strange in the Multiverse of Madness",
+      "image": "https://m.media-amazon.com/images/M/MV5BNjMwNTEwNjMtMzEyMS00MzlkLWE0ZGItODczN2QxYjJkNWZiXkEyXkFqcGdeQXVyODk2MTI2MA@@._V1_SX300.jpg",
+      "rating": 3.0,
+      "genres": ["Action", "Comedy", "Drama"],
+      "status": "Now Showing"
+    },
+    {
+      "id": 3,
+      "title": "Indemnity",
+      "image": "https://m.media-amazon.com/images/M/MV5BYmQ3YWQ3YTgtYTE0My00MTkwLTg3Y2UtZjc2OTg0ZjE3MGQ4XkEyXkFqcGdeQXVyODk2MTI2MA@@._V1_SX300.jpg",
+      "rating": 2.0,
+      "genres": ["Action", "Comedy", "Drama"],
+      "status": "Now Showing"
+    },
+    {
+      "id": 4,
+      "title": "Sonic 2",
+      "image": "https://m.media-amazon.com/images/M/MV5BMjA5NDcwMzEyN15BMl5BanBnXkFtZWgwMDkzODgzMDI@._V1_SX300.jpg",
+      "rating": 3.5,
+      "genres": ["Action", "Comedy", "Drama"],
+      "status": "Now Showing"
+    }
+  ],
+  "trending": [
+    {
+      "id": 5,
+      "title": "Twisters",
+      "image": "https://m.media-amazon.com/images/M/MV5BMTY4MDY2NTA2Ml5BMl5BanBnXkFtZWgwNzQ2NTc3NzI@._V1_SX300.jpg",
+      "rating": 4.0,
+      "genres": ["Action", "Thriller"],
+      "status": "Trending"
+    },
+    {
+      "id": 6,
+      "title": "The Couple",
+      "image": "https://m.media-amazon.com/images/M/MV5BMzQyYzY0ZjctMDk1OS00OTg5LTg3ZDQtY2Q2M2E5ZGZlMGI5XkEyXkFqcGdeQXVyNzI1NzMzNzk@._V1_SX300.jpg",
+      "rating": 3.8,
+      "genres": ["Adventure", "Comedy"],
+      "status": "Trending"
+    },
+    {
+      "id": 7,
+      "title": "Silent Terror",
+      "image": "https://m.media-amazon.com/images/M/MV5BM2FmZDU5N2QtOTU5Yi00OTAwLWE3NDQtYTkwZjQ5NzQ1OWU5XkEyXkFqcGdeQXVyMTQ3Mzk2MDg4._V1_SX300.jpg",
+      "rating": 4.2,
+      "genres": ["Thriller", "Drama"],
+      "status": "Trending"
+    }
+  ]
+}

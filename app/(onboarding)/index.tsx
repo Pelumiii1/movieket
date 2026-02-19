@@ -1,10 +1,10 @@
 import { colors } from "@/utils/constants";
+import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
 import React, { useRef, useState } from "react";
 import {
   Dimensions,
   FlatList,
-  ImageBackground,
   Pressable,
   StatusBar,
   StyleSheet,
@@ -62,7 +62,7 @@ export default function Onboarding() {
           <ImageBackground
             style={styles.container}
             source={item.image}
-            resizeMode="cover"
+            contentFit="cover"
           >
             <View style={styles.overlay}>
               <View style={{ marginRight: 40 }}>

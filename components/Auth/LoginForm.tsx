@@ -59,7 +59,7 @@ const LoginForm = () => {
 
       <Pressable
         style={styles.loginButton}
-        // onPress={() => router.push("/(auth)/register")}
+        onPress={() => router.push("/(tabs)")}
       >
         <Text style={styles.buttonText}>Log in</Text>
       </Pressable>
