@@ -11,19 +11,11 @@ import {
   View,
 } from "react-native";
 import MovieCard from "./MovieCard";
+import { Movie } from "./NowShowing";
 
-export interface Movie {
-  id: number;
-  title: string;
-  image: string;
-  rating: number;
-  genres: string[];
-  status: string;
-}
-
-const NowShowing = () => {
+const TrendingMovie = () => {
   const router = useRouter();
-  const movies: Movie[] = moviesData.nowShowing;
+  const movies: Movie[] = moviesData.trending;
 
   const renderMovieCard: ListRenderItem<Movie> = ({ item }) => (
     <MovieCard
@@ -32,12 +24,11 @@ const NowShowing = () => {
       image={item.image}
       rating={item.rating}
       genres={item.genres}
-      status="Now Showing"
+      status="Now Showing" // Since MovieCard's status prop has limited options
       onPress={() => {
-        // Handle movie press - navigate to details or booking
         router.push({
           pathname: "/movie/[id]",
-          params: { id: item.id.toString(), category: "now-showing" },
+          params: { id: item.id.toString(), category: "trending" },
         });
       }}
     />
@@ -46,12 +37,12 @@ const NowShowing = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Now Showing in Cinema</Text>
+        <Text style={styles.title}>Trending Movies</Text>
         <TouchableOpacity
           onPress={() =>
             router.push({
               pathname: "/(tabs)/see-all",
-              params: { category: "now-showing" },
+              params: { category: "trending" },
             })
           }
         >
@@ -71,6 +62,8 @@ const NowShowing = () => {
     </View>
   );
 };
+
+export default TrendingMovie;
 
 const styles = StyleSheet.create({
   container: {
@@ -97,5 +90,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
 });
-
-export default NowShowing;

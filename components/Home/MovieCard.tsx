@@ -1,12 +1,13 @@
-import Ionicons from "@expo/vector-icons/Ionicons";
+import { colors } from "@/utils/constants";
 import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { AnimatedCircularProgress } from "react-native-circular-progress";
 
 interface MovieCardProps {
   id: number;
   title: string;
   image: string;
-  rating?: number;
+  rating: number;
   genres?: string[];
   status?: "Now Showing" | "Coming Soon";
   onPress?: () => void;
@@ -21,45 +22,72 @@ const MovieCard = ({
   status,
   onPress,
 }: MovieCardProps) => {
+  const progress = (rating / 5.0) * 100;
+
   return (
     <Pressable style={styles.card} onPress={onPress}>
       {/* Movie Poster Image */}
-      <Image source={{ uri: image }} style={styles.poster} />
+      <Image
+        source={require("../../assets/images/dr-strange.jpg")}
+        style={styles.poster}
+      />
 
-      {/* Status Badge */}
-      {/* {status && (
-        <View
-          style={[
-            styles.statusBadge,
-            status === "Coming Soon"
-              ? styles.comingSoonBadge
-              : styles.nowShowingBadge,
-          ]}
-        >
-          <Text style={styles.statusText}>{status}</Text>
-        </View>
-      )} */}
-
-      {/* Rating */}
-      {rating && (
-        <View style={styles.ratingContainer}>
-          <Ionicons name="star" size={16} color="#FFD700" />
-          <Text style={styles.ratingText}>{rating}</Text>
-        </View>
-      )}
-
-      {/* Movie Info */}
-      <View style={styles.info}>
-        <Text style={styles.title} numberOfLines={2}>
-          {title}
-        </Text>
-
-        {/* Genres */}
-        {genres && genres.length > 0 && (
-          <Text style={styles.genres} numberOfLines={1}>
-            {genres.join(", ")}
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "flex-start",
+          paddingVertical: 12,
+        }}
+      >
+        {/* Movie Info */}
+        <View style={styles.info}>
+          <Text style={styles.title} numberOfLines={1}>
+            {title}
           </Text>
-        )}
+
+          {/* Genres */}
+          {genres && genres.length > 0 && (
+            <Text style={styles.genres} numberOfLines={1}>
+              {genres.join(", ")}
+            </Text>
+          )}
+        </View>
+
+        {/* Rating    */}
+        <AnimatedCircularProgress
+          size={21}
+          width={1}
+          fill={progress}
+          tintColor="#C580C7"
+          // backgroundColor="#E0E0E0"
+          rotation={0}
+          lineCap="round"
+          style={{ transform: [{ scaleX: -1 }] }}
+        >
+          {(fill: number) => (
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+                transform: [{ scaleX: -1 }],
+              }}
+            >
+              <Text
+                style={{
+                  color: colors?.PRIMARY || "#000",
+                  fontSize: 8,
+                  fontWeight: "500",
+                }}
+              >
+                {rating.toFixed(1)}
+              </Text>
+            </View>
+          )}
+        </AnimatedCircularProgress>
+
+        {/* </View> */}
       </View>
     </Pressable>
   );
@@ -74,6 +102,7 @@ const styles = StyleSheet.create({
   poster: {
     width: "100%",
     height: 220,
+    borderRadius: 8,
   },
   statusBadge: {
     position: "absolute",
@@ -112,17 +141,18 @@ const styles = StyleSheet.create({
     fontWeight: "600",
   },
   info: {
-    padding: 12,
     gap: 6,
+    maxWidth: "80%",
   },
   title: {
-    color: "#fff",
+    color: "black",
     fontSize: 13,
-    fontWeight: "700",
+    fontWeight: "500",
   },
   genres: {
-    color: "#919191",
-    fontSize: 11,
+    color: "#4A504A",
+    fontSize: 10,
+    fontWeight: "500",
   },
 });
 

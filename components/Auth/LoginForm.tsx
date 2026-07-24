@@ -1,3 +1,4 @@
+import AppButton from "@/components/Common/AppButton";
 import { colors } from "@/utils/constants";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { router } from "expo-router";
@@ -57,18 +58,17 @@ const LoginForm = () => {
         </Pressable>
       </View>
 
-      <Pressable
-        style={styles.loginButton}
+      <AppButton
+        title="Log in"
         onPress={() => router.push("/(tabs)")}
-      >
-        <Text style={styles.buttonText}>Log in</Text>
-      </Pressable>
-      <Pressable
-        style={styles.continueWithGoogle}
-        // onPress={() => router.push("/(auth)")}
-      >
-        <Text style={styles.googleButtonText}>Continue with Google</Text>
-      </Pressable>
+        style={styles.marginTop20}
+      />
+      <AppButton
+        title="Continue with Google"
+        variant="secondary"
+        onPress={() => {}}
+        style={styles.marginTop20}
+      />
 
       <View style={styles.footerContainer}>
         <Text style={styles.footerText}>Dont have and account? </Text>
@@ -135,34 +135,8 @@ const styles = StyleSheet.create({
     color: colors.PRIMARY,
     fontWeight: "500",
   },
-  buttonText: {
-    color: "white",
-    fontWeight: "500",
-    fontSize: 18,
-  },
-  googleButtonText: {
-    color: colors.PRIMARY,
-    fontWeight: "500",
-    fontSize: 18,
-  },
-  loginButton: {
-    backgroundColor: colors.PRIMARY,
+  marginTop20: {
     marginTop: 20,
-    borderRadius: 10,
-    height: 55,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  continueWithGoogle: {
-    marginTop: 20,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: colors.PRIMARY,
-    height: 55,
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
   },
   footerContainer: {
     flexDirection: "row",

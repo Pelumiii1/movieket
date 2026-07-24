@@ -91,6 +91,13 @@ export default function TabsLayout() {
             ),
         }}
       />
+      <Tabs.Screen
+        name="see-all"
+        options={{
+          href: null,
+          title: "All Movies",
+        }}
+      />
     </Tabs>
   );
 }
